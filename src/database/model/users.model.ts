@@ -1,8 +1,8 @@
-import { Model, ModelObject } from 'objection';
-import { InvoiceModel } from './invoice.model';
+import { Model, ModelObject } from "objection";
+import { InvoiceModel } from "./invoice.model";
 
 export class UsersModel extends Model {
-  id!: number;
+  id!: string;
   username!: string;
   password!: string;
   role!: string;
@@ -17,8 +17,8 @@ export class UsersModel extends Model {
         relation: Model.HasManyRelation,
         modelClass: InvoiceModel,
         join: {
-          from: 'users.id',
-          to: 'invoice.user_id',
+          from: "users.id",
+          to: "invoice.user_id",
         },
       },
     };

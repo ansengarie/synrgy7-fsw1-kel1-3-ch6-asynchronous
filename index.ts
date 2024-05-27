@@ -4,7 +4,7 @@ import { Model } from "objection";
 import router from "./src/routes";
 
 const app: Express = express();
-const port = 8000;
+const port = 3000;
 
 const knexInstance = knex({
   client: "postgres",
