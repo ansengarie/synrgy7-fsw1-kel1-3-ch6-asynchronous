@@ -4,12 +4,13 @@ import {
   getInvoiceById,
   createInvoice,
   deleteInvoice,
-  updateStatus
+  updateStatus,
 } from "../../controllers/admin/InvoiceController";
+import { checkAuth } from "../../middlewares/authMiddleware";
 export const invoiceRouter = express.Router();
 
-invoiceRouter.get("/", getAllInvoice);
-invoiceRouter.get("/:id", getInvoiceById);
-invoiceRouter.post("/", createInvoice);
-invoiceRouter.delete("/:id", deleteInvoice);
-invoiceRouter.put("/status/:id", updateStatus)
+invoiceRouter.get("/", checkAuth, getAllInvoice);
+invoiceRouter.get("/:id", checkAuth, getInvoiceById);
+invoiceRouter.post("/", checkAuth, createInvoice);
+invoiceRouter.delete("/:id", checkAuth, deleteInvoice);
+invoiceRouter.put("/status/:id", checkAuth, updateStatus);
